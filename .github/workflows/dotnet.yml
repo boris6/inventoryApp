@@ -26,4 +26,4 @@ jobs:
     - name: Build
       run: dotnet build ./InventoryApp/ --no-restore       
     - name: Test
-      run: dotnet test
+      run: dotnet test ./InventoryApp.Test/
