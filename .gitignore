@@ -350,3 +350,7 @@ MigrationBackup/
 .ionide/
 /InventoryApp/InventoryApp/Application.db
 /InventoryApp/InventoryApp/InventoryApp.db
+/InventoryApp/InventoryApp/InventoryApp.db-wal
+/InventoryApp/InventoryApp/InventoryApp.db-shm
+/InventoryApp/InventoryApp/Application.db-wal
+/InventoryApp/InventoryApp/Application.db-shm
