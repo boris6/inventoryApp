@@ -26,7 +26,7 @@
                 <span asp-validation-for="Product.Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Product.UnitOfMeasure" class="control-label"></label>
+                <label asp-for="Product.UnitOfMeasure" class="control-label">Unit of measure</label>
                 <select asp-for="Product.UnitOfMeasure" asp-items="Html.GetEnumSelectList<UnitOfMeasure>()" class="form-control"></select>
                 <span asp-validation-for="Product.UnitOfMeasure" class="text-danger"></span>
             </div>
@@ -36,7 +36,7 @@
                 <span asp-validation-for="Product.Price" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Product.NominalWeight" class="control-label"></label>
+                <label asp-for="Product.NominalWeight" class="control-label">Nominal weight</label>
                 <input asp-for="Product.NominalWeight" class="form-control" />
                 <span asp-validation-for="Product.NominalWeight" class="text-danger"></span>
             </div>

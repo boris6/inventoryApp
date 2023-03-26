@@ -24,7 +24,12 @@ public class CreateModel : PageModel
     // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
     public async Task<IActionResult> OnPostAsync()
     {
+        Bin.CreatedBy = User.Identity.Name;
         Bin.CreatedDate = DateTime.Now;
+
+        ModelState.ClearValidationState(nameof(Bin));
+        if (!TryValidateModel(Bin, nameof(Bin))) return Page();
+
         if (!ModelState.IsValid || _context.Bins == null || Bin == null) return Page();
 
         _context.Bins.Add(Bin);
