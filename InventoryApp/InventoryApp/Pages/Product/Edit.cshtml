@@ -1,4 +1,5 @@
 ﻿@page
+@using InventoryApp.Model.Enums
 @model InventoryApp.Pages.Product.EditModel
 
 @{
@@ -26,7 +27,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Product.UnitOfMeasure" class="control-label"></label>
-                <select asp-for="Product.UnitOfMeasure" class="form-control"></select>
+                <select asp-for="Product.UnitOfMeasure" asp-items="Html.GetEnumSelectList<UnitOfMeasure>()" class="form-control"></select>
                 <span asp-validation-for="Product.UnitOfMeasure" class="text-danger"></span>
             </div>
             <div class="form-group">
