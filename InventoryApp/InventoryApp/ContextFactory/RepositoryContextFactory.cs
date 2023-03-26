@@ -1,5 +1,4 @@
-﻿using InventoryApp.Repository;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
 namespace InventoryApp.ContextFactory;
@@ -13,7 +12,8 @@ public class RepositoryContextFactory : IDesignTimeDbContextFactory<RepositoryCo
             .Build();
         var builder =
             new DbContextOptionsBuilder<RepositoryContext>().UseSqlite(
-                configuration.GetConnectionString("sqlConnection"));
+                configuration.GetConnectionString("sqlConnection"),
+                b => b.MigrationsAssembly("InventoryApp"));
         return new RepositoryContext(builder.Options);
     }
 }

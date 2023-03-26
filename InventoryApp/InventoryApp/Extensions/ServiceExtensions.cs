@@ -1,4 +1,4 @@
-﻿using InventoryApp.Repository;
+﻿using InventoryApp.ContextFactory;
 using Microsoft.EntityFrameworkCore;
 
 namespace InventoryApp.Extensions;

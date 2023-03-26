@@ -10,7 +10,7 @@ namespace InventoryApp.Model.Models
 {
     public class User
     {
-        public int UsertId { get; set; }
+        public Guid UserId { get; set; }
         [Required(ErrorMessage = "UserName is a required field")]
         public string UserName { get; set; }
         [Required(ErrorMessage = "Password is a required field")]

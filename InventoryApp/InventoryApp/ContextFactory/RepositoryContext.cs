@@ -1,7 +1,8 @@
-﻿using InventoryApp.Model.Models;
+﻿using InventoryApp.Model.Enums;
+using InventoryApp.Model.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace InventoryApp.Repository;
+namespace InventoryApp.ContextFactory;
 
 public class RepositoryContext : DbContext
 {
