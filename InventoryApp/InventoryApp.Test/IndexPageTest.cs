@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using InventoryApp.ContextFactory;
 using InventoryApp.Pages.Product;
 using Microsoft.AspNetCore.Mvc.RazorPages;
