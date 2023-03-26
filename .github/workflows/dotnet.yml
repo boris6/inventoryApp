@@ -24,7 +24,6 @@ jobs:
       run: dotnet restore
       working-directory: ./InventoryApp/
     - name: Build
-      run: dotnet build --no-restore
-      working-directory: ./InventoryApp/InventoryApp/
+      run: dotnet build ./InventoryApp/ --no-restore       
     - name: Test
       run: dotnet test
