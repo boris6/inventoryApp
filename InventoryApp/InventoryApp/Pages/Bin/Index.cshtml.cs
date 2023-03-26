@@ -13,11 +13,11 @@ public class IndexModel : PageModel
         _context = context;
     }
 
-    public IList<Model.Models.Bin> Bin { get; set; } = default!;
+    public IList<Model.Models.Bin> Bins { get; set; } = default!;
 
     public async Task OnGetAsync()
     {
         if (_context.Bins != null)
-            Bin = await _context.Bins.Where(x => x.CreatedBy == User.Identity.Name).ToListAsync();
+            Bins = await _context.Bins.Where(x => x.CreatedBy == User.Identity.Name).ToListAsync();
     }
 }

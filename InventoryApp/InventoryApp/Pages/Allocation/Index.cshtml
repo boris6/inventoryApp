@@ -2,7 +2,7 @@
 @model InventoryApp.Pages.Allocation.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Allocations";
 }
 
 <h1>Index</h1>
@@ -14,17 +14,29 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Allocation[0].Quantity)
+                Product
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Allocation[0].CreatedDate)
+                Bin
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Allocations[0].Quantity)
+            </th>
+            <th>
+                Created Date
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Allocation) {
+@foreach (var item in Model.Allocations) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bin.Name)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Quantity)
             </td>

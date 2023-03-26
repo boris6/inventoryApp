@@ -17,24 +17,31 @@ namespace InventoryApp.Pages.Allocation
         public CreateModel(InventoryApp.ContextFactory.RepositoryContext context)
         {
             _context = context;
+           
         }
 
         public IActionResult OnGet()
         {
+            Bins = _context.Bins.Where(x => x.CreatedBy == User.Identity.Name).ToList();
+            Products = _context.Products.Where(x => x.CreatedBy == User.Identity.Name).ToList();
             return Page();
         }
 
         [BindProperty]
         public Model.Models.Allocation Allocation { get; set; } = default!;
-        
+        public IList<Model.Models.Product> Products { get; set; } 
+        public IList<Model.Models.Bin> Bins { get; set; }
+
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Allocations == null || Allocation == null)
-            {
-                return Page();
-            }
+            ModelState.ClearValidationState(nameof(Allocation));
+            Allocation.Product = Products.FirstOrDefault(x => x.ProductID == Allocation.ProductID);
+            Allocation.Bin = Bins.FirstOrDefault(x => x.BinID == Allocation.BinID);
+            if (!TryValidateModel(Allocation, nameof(Allocation ))) return Page();
+
+            if (!ModelState.IsValid || _context.Allocations == null || Allocation == null) return Page();
 
             _context.Allocations.Add(Allocation);
             await _context.SaveChangesAsync();

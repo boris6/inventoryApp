@@ -13,11 +13,11 @@ public class IndexModel : PageModel
         _context = context;
     }
 
-    public IList<Model.Models.Product> Product { get; set; } = default!;
+    public IList<Model.Models.Product> Products { get; set; } = default!;
 
     public async Task OnGetAsync()
     {
         if (_context.Products != null)
-            Product = await _context.Products.Where(x => x.CreatedBy == User.Identity.Name).ToListAsync();
+            Products = await _context.Products.Where(x => x.CreatedBy == User.Identity.Name).ToListAsync();
     }
 }

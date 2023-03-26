@@ -19,13 +19,17 @@ namespace InventoryApp.Pages.Allocation
             _context = context;
         }
 
-        public IList<Model.Models.Allocation> Allocation { get;set; } = default!;
+        public IList<Model.Models.Allocation> Allocations { get;set; } = default!;
+        public IList<Model.Models.Product> Products { get; set; } = default!;
+        public IList<Model.Models.Bin> Bins { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
             if (_context.Allocations != null)
             {
-                Allocation = await _context.Allocations.ToListAsync();
+                Allocations = await _context.Allocations.Where(x => x.CreatedBy == User.Identity.Name).ToListAsync();
+                Bins = await _context.Bins.Where(x => x.CreatedBy == User.Identity.Name).ToListAsync();
+                Products = await _context.Products.Where(x => x.CreatedBy == User.Identity.Name).ToListAsync();
             }
         }
     }

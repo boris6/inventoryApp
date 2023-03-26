@@ -19,4 +19,20 @@ public class RepositoryContext : DbContext
     {
         if (!optionsBuilder.IsConfigured) optionsBuilder.UseSqlite("Data Source = Application.db; Cache = Shared");
     }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Allocation>().HasKey(sc => new { sc.ProductID, sc.BinID });
+
+        modelBuilder.Entity<Allocation>()
+            .HasOne<Product>(sc => sc.Product)
+            .WithMany(s => s.Allocations)
+            .HasForeignKey(sc => sc.ProductID);
+
+
+        modelBuilder.Entity<Allocation>()
+            .HasOne<Bin>(sc => sc.Bin)
+            .WithMany(s => s.Allocations)
+            .HasForeignKey(sc => sc.BinID);
+    }
 }
