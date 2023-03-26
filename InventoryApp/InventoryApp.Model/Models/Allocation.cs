@@ -14,5 +14,6 @@ namespace InventoryApp.Model.Models
         public decimal Quantity { get; set; }
         public User? CreatedBy { get; set; }
         public DateTime CreatedDate { get; set; }
+
     }
 }
