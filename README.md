@@ -1,6 +1,4 @@
-# inventoryApp
-
-## User specification for inventory application
+# User specification for inventory application
 
 The inventory application is a web-based system that allows users to manage their products and bins. The application provides the following functionality:
 
