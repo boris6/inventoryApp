@@ -37,8 +37,7 @@ namespace InventoryApp.Pages.Allocation
         public async Task<IActionResult> OnPostAsync()
         {
             ModelState.ClearValidationState(nameof(Allocation));
-            Allocation.Product = Products.FirstOrDefault(x => x.ProductID == Allocation.ProductID);
-            Allocation.Bin = Bins.FirstOrDefault(x => x.BinID == Allocation.BinID);
+            Allocation.CreatedBy = User.Identity.Name;
             if (!TryValidateModel(Allocation, nameof(Allocation ))) return Page();
 
             if (!ModelState.IsValid || _context.Allocations == null || Allocation == null) return Page();

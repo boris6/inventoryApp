@@ -22,8 +22,6 @@ public class RepositoryContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Allocation>().HasKey(sc => new { sc.ProductID, sc.BinID });
-
         modelBuilder.Entity<Allocation>()
             .HasOne<Product>(sc => sc.Product)
             .WithMany(s => s.Allocations)

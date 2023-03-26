@@ -3,6 +3,7 @@ using System;
 using InventoryApp.ContextFactory;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,20 +11,25 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InventoryApp.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20230326172527_AddIdallocations")]
+    partial class AddIdallocations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.4");
 
             modelBuilder.Entity("InventoryApp.Model.Models.Allocation", b =>
                 {
-                    b.Property<Guid>("AllocationID")
-                        .ValueGeneratedOnAdd()
+                    b.Property<Guid>("ProductID")
                         .HasColumnType("TEXT");
 
                     b.Property<Guid>("BinID")
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("AllocationID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("CreatedBy")
@@ -33,17 +39,12 @@ namespace InventoryApp.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("ProductID")
-                        .HasColumnType("TEXT");
-
                     b.Property<decimal>("Quantity")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("AllocationID");
+                    b.HasKey("ProductID", "BinID");
 
                     b.HasIndex("BinID");
-
-                    b.HasIndex("ProductID");
 
                     b.ToTable("Allocations");
                 });
