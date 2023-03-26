@@ -7,8 +7,10 @@ namespace InventoryApp.Model.Models
     {
         public Guid ProductID { get; set; }
         [Required(ErrorMessage = "Code is a required field")]
+        [StringLength(10)]
         public string Code { get;set; }
         [Required(ErrorMessage = "Description is a required field")]
+        [StringLength(30)]
         public string Description { get; set; }
         public UnitOfMeasure UnitOfMeasure { get; set; }
         public decimal Price { get; set; }

@@ -8,53 +8,28 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="./create" class="btn btn-primary">Create New Product</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Product[0].Code)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Product[0].Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Product[0].UnitOfMeasure)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Product[0].Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Product[0].NominalWeight)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Product) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Code)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UnitOfMeasure)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NominalWeight)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ProductID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ProductID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ProductID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model.Product)
+        {
+            <div class="col-md-3 m-3">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Code</h5>
+                        <h5 class="card-title">@item.Description</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Price: @item.Price $</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">Nominal weight: @item.NominalWeight</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">Unit of measure: @item.UnitOfMeasure</h6>
+                        <a asp-page="./edit" asp-route-id="@item.ProductID" class="btn btn-primary">Edit</a>
+                        <a asp-page="./delete" asp-route-id="@item.ProductID" class="btn btn-danger">Delete</a>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
