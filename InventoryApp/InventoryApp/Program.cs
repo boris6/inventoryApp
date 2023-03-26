@@ -24,7 +24,11 @@ public class Program
         }).AddEntityFrameworkStores<InventoryAppContext>();
 
         // Add services to the container.
-        builder.Services.AddRazorPages(options =>options.Conventions.AuthorizeFolder("/"));
+        builder.Services.AddRazorPages(options =>
+        {
+            options.Conventions.AuthorizeFolder("/");
+            options.Conventions.AllowAnonymousToPage("/Privacy");
+        });
         builder.Services.ConfigureSqlContext(builder.Configuration);
 
         var app = builder.Build();
