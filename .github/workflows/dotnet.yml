@@ -28,5 +28,3 @@ jobs:
       working-directory: ./InventoryApp/InventoryApp/
     - name: Test
       run: dotnet test
-      working-directory: ./InventoryApp/InventoryApp.Test/
-  
