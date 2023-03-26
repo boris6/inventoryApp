@@ -1,4 +1,5 @@
 using InventoryApp.Areas.Identity.Data;
+using InventoryApp.ContextFactory;
 using InventoryApp.Data;
 using InventoryApp.Extensions;
 using Microsoft.EntityFrameworkCore;
@@ -33,6 +34,7 @@ public class Program
 
         var app = builder.Build();
 
+        app.EnsureDbCreated();
         // Configure the HTTP request pipeline.
         if (!app.Environment.IsDevelopment()) app.UseExceptionHandler("/Error");
         app.UseStaticFiles();
