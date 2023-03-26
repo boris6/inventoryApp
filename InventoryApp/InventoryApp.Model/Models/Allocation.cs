@@ -12,7 +12,7 @@ namespace InventoryApp.Model.Models
         public Product Product { get; set; }
         public Bin Bin { get; set; }
         public decimal Quantity { get; set; }
-        public User? CreatedBy { get; set; }
+        public string CreatedBy { get; set; }
         public DateTime CreatedDate { get; set; }
 
     }

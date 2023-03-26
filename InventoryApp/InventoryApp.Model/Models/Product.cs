@@ -15,6 +15,6 @@ namespace InventoryApp.Model.Models
         public UnitOfMeasure UnitOfMeasure { get; set; }
         public decimal Price { get; set; }
         public decimal NominalWeight { get; set; }
-        public User? CreatedBy { get; set; }     
+        public string CreatedBy { get; set; }     
     }
 }

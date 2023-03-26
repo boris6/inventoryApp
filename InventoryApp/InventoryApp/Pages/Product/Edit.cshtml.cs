@@ -43,7 +43,9 @@ namespace InventoryApp.Pages.Product
         // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            Product.CreatedBy = User.Identity.Name;
+            ModelState.ClearValidationState(nameof(Product));
+            if (!TryValidateModel(Product, nameof(Product)))
             {
                 return Page();
             }
