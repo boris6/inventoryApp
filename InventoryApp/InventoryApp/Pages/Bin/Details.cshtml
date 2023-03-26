@@ -1,5 +1,5 @@
 ﻿@page
-@model InventoryApp.Pages.Bin.DetailsModel
+@model DetailsModel
 
 @{
     ViewData["Title"] = "Details";
@@ -9,7 +9,7 @@
 
 <div>
     <h4>Bin</h4>
-    <hr />
+    <hr/>
     <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Bin.Name)
@@ -31,7 +31,59 @@
         </dd>
     </dl>
 </div>
+<div style="margin-block-start: 4%">
+    <h4>List of products allocated to selected bin</h4>
+    <hr/>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Allocations[0].Product.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Allocations[0].Product.Description)
+            </th>
+            <th>
+                Nominal weight
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Allocations[0].Quantity)
+            </th>
+            <th>
+                Unit of measure
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Allocations[0].Product.Price)
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.Allocations)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.NominalWeight)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.UnitOfMeasure)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Price)
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Bin?.BinID">Edit</a> |
     <a asp-page="./Index">Back to List</a>
 </div>
