@@ -25,5 +25,5 @@ jobs:
       working-directory: ./InventoryApp/
     - name: Build
       run: dotnet build --no-restore
-      working-directory: ./InventoryApp/WebApplication1/
+      working-directory: ./InventoryApp/InventoryApp/
   

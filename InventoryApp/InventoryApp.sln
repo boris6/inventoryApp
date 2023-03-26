@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InventoryApp", "WebApplication1\InventoryApp.csproj", "{3F44E36A-0A5E-4C6C-AD36-76072DBACE59}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InventoryApp", "InventoryApp\InventoryApp.csproj", "{3F44E36A-0A5E-4C6C-AD36-76072DBACE59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryApp.Database", "InventoryApp.Database\InventoryApp.Database.csproj", "{E7273E39-0F2C-40F5-AE1C-DF6738B801A3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryApp.Model", "InventoryApp.Model\InventoryApp.Model.csproj", "{30E8CA3B-5A6F-40BB-9207-3E2406F09281}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InventoryApp.Model", "InventoryApp.Model\InventoryApp.Model.csproj", "{30E8CA3B-5A6F-40BB-9207-3E2406F09281}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +17,6 @@ Global
 		{3F44E36A-0A5E-4C6C-AD36-76072DBACE59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F44E36A-0A5E-4C6C-AD36-76072DBACE59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F44E36A-0A5E-4C6C-AD36-76072DBACE59}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E7273E39-0F2C-40F5-AE1C-DF6738B801A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E7273E39-0F2C-40F5-AE1C-DF6738B801A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E7273E39-0F2C-40F5-AE1C-DF6738B801A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E7273E39-0F2C-40F5-AE1C-DF6738B801A3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{30E8CA3B-5A6F-40BB-9207-3E2406F09281}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{30E8CA3B-5A6F-40BB-9207-3E2406F09281}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30E8CA3B-5A6F-40BB-9207-3E2406F09281}.Release|Any CPU.ActiveCfg = Release|Any CPU
