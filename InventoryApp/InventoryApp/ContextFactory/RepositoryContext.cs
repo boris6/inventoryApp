@@ -1,5 +1,4 @@
-﻿using InventoryApp.Model.Enums;
-using InventoryApp.Model.Models;
+﻿using InventoryApp.Model.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace InventoryApp.ContextFactory;

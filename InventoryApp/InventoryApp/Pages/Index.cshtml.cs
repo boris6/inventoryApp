@@ -13,7 +13,6 @@ namespace InventoryApp.Pages
 
         public void OnGet()
         {
-
         }
     }
 }
