@@ -49,6 +49,8 @@ namespace InventoryApp.Pages.Bin
             }
 
             _context.Attach(Bin).State = EntityState.Modified;
+            _context.Entry(Bin).Property(e => e.CreatedDate).IsModified = false;
+
 
             try
             {
