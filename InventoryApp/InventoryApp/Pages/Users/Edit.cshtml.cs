@@ -47,7 +47,7 @@ namespace InventoryApp.Pages.Users
             {
                 return Page();
             }
-
+            
             _context.Attach(User).State = EntityState.Modified;
 
             try
