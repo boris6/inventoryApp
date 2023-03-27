@@ -1,4 +1,5 @@
 ﻿using InventoryApp.ContextFactory;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,16 +15,15 @@ public class IndexModel : PageModel
     }
 
     public IList<Model.Models.Allocation> Allocations { get; set; } = default!;
-    public IList<Model.Models.Product> Products { get; set; } = default!;
-    public IList<Model.Models.Bin> Bins { get; set; } = default!;
+
+    [BindProperty(SupportsGet = true)] public string? SearchString { get; set; }
 
     public async Task OnGetAsync()
     {
-        if (_context.Allocations != null)
-        {
-            Allocations = await _context.Allocations.Where(x => x.CreatedBy == User.Identity.Name).ToListAsync();
-            Bins = await _context.Bins.Where(x => x.CreatedBy == User.Identity.Name).ToListAsync();
-            Products = await _context.Products.Where(x => x.CreatedBy == User.Identity.Name).ToListAsync();
-        }
+        var allocations = _context.Allocations.Where(x => x.CreatedBy == User.Identity.Name);
+        if (!string.IsNullOrEmpty(SearchString))
+            allocations = allocations.Where(x =>
+                x.Product.Code.Contains(SearchString) || x.Bin.Name.Contains(SearchString));
+        Allocations = await allocations.Include(x => x.Bin).Include(x => x.Product).ToListAsync();
     }
 }
