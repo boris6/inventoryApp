@@ -1,5 +1,5 @@
-﻿using InventoryApp.ContextFactory;
-using InventoryApp.Data;
+﻿using InventoryApp.Areas.Identity.Data;
+using InventoryApp.ContextFactory;
 using Microsoft.EntityFrameworkCore;
 
 namespace InventoryApp.Extensions;
@@ -10,8 +10,8 @@ public static class DbExtensions
     {
         using var scope = app.Services.CreateScope();
         var repositoryContext = scope.ServiceProvider.GetRequiredService<RepositoryContext>();
-        repositoryContext?.Database.Migrate();
+        repositoryContext.Database.Migrate();
         var inventoryAppContext = scope.ServiceProvider.GetRequiredService<InventoryAppContext>();
-        inventoryAppContext?.Database.Migrate();
+        inventoryAppContext.Database.Migrate();
     }
 }

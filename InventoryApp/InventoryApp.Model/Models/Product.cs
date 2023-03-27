@@ -17,9 +17,6 @@ namespace InventoryApp.Model.Models
         public decimal NominalWeight { get; set; }
         public string CreatedBy { get; set; }
         public IList<Allocation> Allocations { get; set; } = new List<Allocation>();
-        public string FullName
-        {
-            get => $"{Code} - {Description}"; 
-        }
+        public string FullName => $"{Code} - {Description}";
     }
 }

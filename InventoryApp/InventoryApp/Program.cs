@@ -1,6 +1,4 @@
 using InventoryApp.Areas.Identity.Data;
-using InventoryApp.ContextFactory;
-using InventoryApp.Data;
 using InventoryApp.Extensions;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,12 +9,16 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+
+        // Get Connection String from appsettings.json
         var connectionString = builder.Configuration.GetConnectionString("InventoryAppContextConnection") ??
                                throw new InvalidOperationException(
                                    "Connection string 'InventoryAppContextConnection' not found.");
 
+        // Add DbContext to DI
         builder.Services.AddDbContext<InventoryAppContext>(options => options.UseSqlite(connectionString));
 
+        // Add Identity User to DI
         builder.Services.AddDefaultIdentity<InventoryAppUser>(options =>
         {
             options.Password.RequireNonAlphanumeric = false;
@@ -34,7 +36,9 @@ public class Program
 
         var app = builder.Build();
 
+        // Ensure Database is created
         app.EnsureDbCreated();
+
         // Configure the HTTP request pipeline.
         if (!app.Environment.IsDevelopment()) app.UseExceptionHandler("/Error");
         app.UseStaticFiles();

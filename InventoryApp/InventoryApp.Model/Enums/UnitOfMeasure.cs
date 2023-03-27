@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace InventoryApp.Model.Enums;
 
-namespace InventoryApp.Model.Enums
+public enum UnitOfMeasure
 {
-    public enum UnitOfMeasure
-    {
-        Each,
-        Case,
-        Kg
-    }
+    Each,
+    Case,
+    Kg
 }

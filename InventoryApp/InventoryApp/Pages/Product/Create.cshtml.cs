@@ -1,4 +1,6 @@
-﻿using InventoryApp.ContextFactory;
+﻿// This method is called when the user submits the form. The user can only submit the form if the model is valid, which is determined by ModelState.IsValid. The method adds the product to the database and saves the changes. Then it redirects the user to the Index page.
+
+using InventoryApp.ContextFactory;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -26,10 +28,7 @@ public class CreateModel : PageModel
     {
         Product.CreatedBy = User.Identity.Name;
         ModelState.ClearValidationState(nameof(Product));
-        if (!TryValidateModel(Product, nameof(Product)))
-        {
-            return Page();
-        }
+        if (!TryValidateModel(Product, nameof(Product))) return Page();
         if (!ModelState.IsValid || _context.Products == null || Product == null) return Page();
 
         _context.Products.Add(Product);
