@@ -26,10 +26,7 @@ public class CreateModel : PageModel
     {
         Product.CreatedBy = User.Identity.Name;
         ModelState.ClearValidationState(nameof(Product));
-        if (!TryValidateModel(Product, nameof(Product)))
-        {
-            return Page();
-        }
+        if (!TryValidateModel(Product, nameof(Product))) return Page();
         if (!ModelState.IsValid || _context.Products == null || Product == null) return Page();
 
         _context.Products.Add(Product);

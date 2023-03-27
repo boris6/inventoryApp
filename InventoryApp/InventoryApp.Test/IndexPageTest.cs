@@ -1,7 +1,5 @@
-using System.Security.Claims;
 using InventoryApp.ContextFactory;
 using InventoryApp.Pages.Product;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
 namespace InventoryApp.Test;
@@ -17,7 +15,7 @@ public class IndexPageTest
         var context = new RepositoryContext(contextBuilder.Options);
 
         var pageModel = new CreateModel(context);
-        
+
 
         //act and assert
         await Assert.ThrowsAsync<NullReferenceException>(async () => await pageModel.OnPostAsync());

@@ -1,6 +1,5 @@
 using InventoryApp.Areas.Identity.Data;
 using InventoryApp.ContextFactory;
-using InventoryApp.Data;
 using InventoryApp.Extensions;
 using Microsoft.EntityFrameworkCore;
 
