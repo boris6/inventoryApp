@@ -93,14 +93,11 @@ namespace InventoryApp.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("TEXT");
 
-                    b.Property<decimal>("NominalWeight")
-                        .HasColumnType("TEXT");
-
                     b.Property<decimal>("Price")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("UnitOfMeasure")
-                        .HasColumnType("INTEGER");
+                    b.Property<decimal>("Weight")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("ProductID");
 

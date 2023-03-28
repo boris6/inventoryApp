@@ -1,5 +1,5 @@
 ﻿@page
-@model InventoryApp.Pages.Allocation.DetailsModel
+@model DetailsModel
 
 @{
     ViewData["Title"] = "Allocation Details";
@@ -9,7 +9,7 @@
 
 <div>
     <h4>Allocation</h4>
-    <hr />
+    <hr/>
     <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Allocation.Quantity)
@@ -18,7 +18,7 @@
             @Html.DisplayFor(model => model.Allocation.Quantity)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Allocation.CreatedDate)
+            Allocation date
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Allocation.CreatedDate)

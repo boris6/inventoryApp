@@ -22,8 +22,7 @@
                         <h5 class="card-title">@item.Code</h5>
                         <h5 class="card-title">@item.Description</h5>
                         <h6 class="card-subtitle mb-2 text-muted">Price: @item.Price $</h6>
-                        <h6 class="card-subtitle mb-2 text-muted">Nominal weight: @item.NominalWeight</h6>
-                        <h6 class="card-subtitle mb-2 text-muted">Unit of measure: @item.UnitOfMeasure</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">Quantity: @item.Weight Kg</h6>
                         <a asp-page="./edit" asp-route-id="@item.ProductID" class="btn btn-primary">Edit</a>
                         <a asp-page="./delete" asp-route-id="@item.ProductID" class="btn btn-danger">Delete</a>
 

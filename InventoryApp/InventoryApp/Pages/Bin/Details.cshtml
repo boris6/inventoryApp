@@ -21,7 +21,13 @@
             @Html.DisplayNameFor(model => model.Bin.MaximumCapacity)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Bin.MaximumCapacity)
+            @Html.DisplayFor(model => model.Bin.MaximumCapacity) Kg
+        </dd>
+        <dt class="col-sm-2">
+            Current allocated capacity
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CurrentAllocation) Kg
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Bin.CreatedDate)
@@ -44,13 +50,10 @@
                 @Html.DisplayNameFor(model => model.Allocations[0].Product.Description)
             </th>
             <th>
-                Nominal weight
-            </th>
+                    @Html.DisplayNameFor(model => model.Allocations[0].Product.Weight)
+                </th>
             <th>
                 @Html.DisplayNameFor(model => model.Allocations[0].Quantity)
-            </th>
-            <th>
-                Unit of measure
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Allocations[0].Product.Price)
@@ -68,13 +71,10 @@
                     @Html.DisplayFor(modelItem => item.Product.Description)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Product.NominalWeight)
+                    @Html.DisplayFor(modelItem => item.Product.Weight)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Quantity)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Product.UnitOfMeasure)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Product.Price)
