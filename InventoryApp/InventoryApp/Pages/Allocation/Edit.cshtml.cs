@@ -43,12 +43,18 @@ namespace InventoryApp.Pages.Allocation
         // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            Allocation.CreatedBy = User.Identity.Name;
+            ModelState.ClearValidationState(nameof(Allocation));
+
+            if (!TryValidateModel(Allocation, nameof(Allocation)))
             {
                 return Page();
             }
 
             _context.Attach(Allocation).State = EntityState.Modified;
+            _context.Entry(Allocation).Property(e => e.BinID).IsModified = false;
+            _context.Entry(Allocation).Property(e => e.ProductID).IsModified = false;
+
 
             try
             {

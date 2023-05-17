@@ -9,6 +9,8 @@ public class DetailsModel : PageModel
 {
     private readonly RepositoryContext _context;
 
+    public decimal CurrentAllocation;
+
     public DetailsModel(RepositoryContext context)
     {
         _context = context;
@@ -28,6 +30,7 @@ public class DetailsModel : PageModel
             .ToListAsync();
         Bin = bin;
         Allocations = allocations;
+        CurrentAllocation = Allocations.Sum(x => x.Quantity * x.Product.Weight);
         return Page();
     }
 }

@@ -14,7 +14,9 @@ public class Allocation
     [ForeignKey("BinID")] public Guid BinID { get; set; }
 
     public Bin? Bin { get; set; }
-    public decimal Quantity { get; set; }
+
+    [Range(0, int.MaxValue)] public decimal Quantity { get; set; }
+
     public string CreatedBy { get; set; }
     public DateTime CreatedDate { get; set; }
 }

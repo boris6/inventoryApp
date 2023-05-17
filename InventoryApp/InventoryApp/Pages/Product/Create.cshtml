@@ -2,6 +2,7 @@
 @using InventoryApp.Model.Enums
 @model InventoryApp.Pages.Product.CreateModel
 
+
 @{
     ViewData["Title"] = "Create";
 }
@@ -9,38 +10,33 @@
 <h1>Create</h1>
 
 <h4>Product</h4>
-<hr />
+<hr/>
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Product.Code" class="control-label"></label>
-                <input asp-for="Product.Code" class="form-control" />
+                <input asp-for="Product.Code" class="form-control"/>
                 <span asp-validation-for="Product.Code" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Product.Description" class="control-label"></label>
-                <input asp-for="Product.Description" class="form-control" />
+                <input asp-for="Product.Description" class="form-control"/>
                 <span asp-validation-for="Product.Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Product.UnitOfMeasure" class="control-label">Unit of measure</label>
-                <select asp-for="Product.UnitOfMeasure" asp-items="Html.GetEnumSelectList<UnitOfMeasure>()" class="form-control"></select>
-                <span asp-validation-for="Product.UnitOfMeasure" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Product.Price" class="control-label"></label>
-                <input asp-for="Product.Price" class="form-control" />
+                <label asp-for="Product.Price" class="control-label">Price $</label>
+                <input asp-for="Product.Price" class="form-control"/>
                 <span asp-validation-for="Product.Price" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Product.NominalWeight" class="control-label">Nominal weight</label>
-                <input asp-for="Product.NominalWeight" class="form-control" />
-                <span asp-validation-for="Product.NominalWeight" class="text-danger"></span>
+                <label asp-for="Product.Weight" class="control-label">Weight Kg</label>
+                <input asp-for="Product.Weight" class="form-control" id="weightField"/>
+                <span asp-validation-for="Product.Weight" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary"/>
             </div>
         </form>
     </div>
@@ -50,6 +46,20 @@
     <a asp-page="Index">Back to List</a>
 </div>
 
+<script type="text/javascript">
+    function disableTextBox(selectedValue) {
+        var textBox = document.getElementById("weightField");
+        if (selectedValue == 2) {
+            textBox.value = 0;
+            textBox.disabled = true;
+        } else {            
+            textBox.disabled = false;
+        }
+    }
+
+</script>
+
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+
 }
