@@ -20,7 +20,7 @@ public class IndexModel : PageModel
 
     public async Task OnGetAsync()
     {
-        var allocations = _context.Allocations.Where(x => x.CreatedBy == User.Identity.Name);
+        var allocations = _context.Allocations.Where(x => User.Identity != null && x.CreatedBy == User.Identity.Name);
         if (!string.IsNullOrEmpty(SearchString))
             allocations = allocations.Where(x =>
                 x.Product.Code.Contains(SearchString) || x.Bin.Name.Contains(SearchString));

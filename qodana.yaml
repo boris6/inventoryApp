@@ -5,3 +5,5 @@ exclude:
     paths:
       - InventoryApp/wwwroot
       - InventoryApp/Migrations
+      - InventoryApp/Migrations/InventoryApp
+      - InventoryApp/wwwroot/lib
