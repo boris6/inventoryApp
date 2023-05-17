@@ -30,7 +30,7 @@ public class DetailsModel : PageModel
             .ToListAsync();
         Bin = bin;
         Allocations = allocations;
-        CurrentAllocation = Allocations.Sum(x => x.Quantity);
+        CurrentAllocation = Allocations.Sum(x => x.Quantity * x.Product.Weight);
         return Page();
     }
 }

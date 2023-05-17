@@ -49,8 +49,15 @@ public class CreateModel : PageModel
 
     private bool IsBinCapacityOk()
     {
-        return _context.Bins.First(x => x.BinID == Allocation.BinID).MaximumCapacity >
-               _context.Bins.First(x => x.BinID == Allocation.BinID).Allocations.Sum(x => x.Quantity) +
-               Allocation.Quantity;
+        var bin = _context.Bins.First(x => x.BinID == Allocation.BinID);
+        var product = _context.Products.First(x => x.ProductID == Allocation.ProductID);
+        var sumOfAllocations = _context.Allocations.Where(x => x.BinID == Allocation.BinID)
+            .Sum(x => (double)(x.Quantity * x.Product.Weight));
+        var sumOfAllocationsIncludingThis = sumOfAllocations + (double)(Allocation.Quantity * product.Weight);
+
+        if (bin.MaximumCapacity < (decimal)sumOfAllocationsIncludingThis)
+            return false;
+
+        return true;
     }
 }
