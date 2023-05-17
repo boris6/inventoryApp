@@ -17,6 +17,6 @@ public class Allocation
 
     [Range(0, int.MaxValue)] public decimal Quantity { get; set; }
 
-    public string CreatedBy { get; set; }
+    public string CreatedBy { get; set; } = string.Empty;
     public DateTime CreatedDate { get; set; }
 }

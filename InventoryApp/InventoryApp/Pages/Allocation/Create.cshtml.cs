@@ -21,8 +21,8 @@ public class CreateModel : PageModel
 
     public IActionResult OnGet()
     {
-        Bins = _context.Bins.Where(x => x.CreatedBy == User.Identity.Name).ToList();
-        Products = _context.Products.Where(x => x.CreatedBy == User.Identity.Name).ToList();
+        Bins = _context.Bins.Where(x => User.Identity != null && x.CreatedBy == User.Identity.Name).ToList();
+        Products = _context.Products.Where(x => User.Identity != null && x.CreatedBy == User.Identity.Name).ToList();
         return Page();
     }
 

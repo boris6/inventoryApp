@@ -33,7 +33,7 @@ public class CreateModel : PageModel
 
         _context.Products.Add(Product);
         await _context.SaveChangesAsync();
-        
+
 
         return RedirectToPage("./Index");
     }
