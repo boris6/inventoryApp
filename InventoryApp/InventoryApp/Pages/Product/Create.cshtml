@@ -1,0 +1,65 @@
+﻿@page
+@using InventoryApp.Model.Enums
+@model InventoryApp.Pages.Product.CreateModel
+
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Product</h4>
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Product.Code" class="control-label"></label>
+                <input asp-for="Product.Code" class="form-control"/>
+                <span asp-validation-for="Product.Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Description" class="control-label"></label>
+                <input asp-for="Product.Description" class="form-control"/>
+                <span asp-validation-for="Product.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Price" class="control-label">Price $</label>
+                <input asp-for="Product.Price" class="form-control"/>
+                <span asp-validation-for="Product.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Weight" class="control-label">Weight Kg</label>
+                <input asp-for="Product.Weight" class="form-control" id="weightField"/>
+                <span asp-validation-for="Product.Weight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+<script type="text/javascript">
+    function disableTextBox(selectedValue) {
+        var textBox = document.getElementById("weightField");
+        if (selectedValue == 2) {
+            textBox.value = 0;
+            textBox.disabled = true;
+        } else {            
+            textBox.disabled = false;
+        }
+    }
+
+</script>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+
+}

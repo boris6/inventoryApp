@@ -1,0 +1,89 @@
+﻿@page
+@model DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Bin</h4>
+    <hr/>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bin.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bin.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bin.MaximumCapacity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bin.MaximumCapacity) Kg
+        </dd>
+        <dt class="col-sm-2">
+            Current allocated capacity
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CurrentAllocation) Kg
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bin.CreatedDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bin.CreatedDate)
+        </dd>
+    </dl>
+</div>
+<div style="margin-block-start: 4%">
+    <h4>List of products allocated to selected bin</h4>
+    <hr/>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Allocations[0].Product.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Allocations[0].Product.Description)
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.Allocations[0].Product.Weight)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Allocations[0].Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Allocations[0].Product.Price)
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.Allocations)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Weight)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Price)
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
