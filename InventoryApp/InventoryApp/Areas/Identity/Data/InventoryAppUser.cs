@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 
 namespace InventoryApp.Areas.Identity.Data;
 
@@ -10,4 +6,3 @@ namespace InventoryApp.Areas.Identity.Data;
 public class InventoryAppUser : IdentityUser
 {
 }
-

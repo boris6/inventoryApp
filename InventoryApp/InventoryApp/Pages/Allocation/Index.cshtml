@@ -1,5 +1,5 @@
 ﻿@page "{searchString?}"
-@model InventoryApp.Pages.Allocation.IndexModel
+@model IndexModel
 
 @{
     ViewData["Title"] = "Allocations";
@@ -12,30 +12,31 @@
 </p>
 <form>
     <p>
-        Search product or bin: <input type="text" asp-for="SearchString" />
-        <input type="submit" value="Filter" />
+        Search product or bin: <input type="text" asp-for="SearchString"/>
+        <input type="submit" value="Filter"/>
     </p>
 </form>
 <table class="table">
     <thead>
-        <tr>
-            <th>
-                Product
-            </th>
-            <th>
-                Bin
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Allocations[0].Quantity)
-            </th>
-            <th>
-                Created Date
-            </th>
-            <th></th>
-        </tr>
+    <tr>
+        <th>
+            Product
+        </th>
+        <th>
+            Bin
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Allocations[0].Quantity)
+        </th>
+        <th>
+            Created Date
+        </th>
+        <th></th>
+    </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Allocations) {
+    @foreach (var item in Model.Allocations)
+    {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Product.Code)
@@ -55,6 +56,6 @@
                 <a asp-page="./Delete" asp-route-id="@item.AllocationID">Delete</a>
             </td>
         </tr>
-}
+    }
     </tbody>
 </table>
