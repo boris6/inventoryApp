@@ -48,7 +48,7 @@
                 @Html.DisplayFor(modelItem => item.Quantity)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CreatedDate)
+                @Html.Raw(item.CreatedDate.ToString("dd MMMM yyyy"))
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.AllocationID">Edit</a> |
